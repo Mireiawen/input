@@ -1,0 +1,25 @@
+{
+	"name": "mireiawen/input",
+	"description": "Input parsers for $_POST, $_GET, $_SESSION and $_ENV",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Mira Manninen",
+			"email": "mir@mireiawen.net"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=7.3.0",
+		"ext-gettext": "*"
+	},
+	"require-dev": {
+		"roave/security-advisories": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"Mireiawen\\Input\\": "includes"
+		}
+	}
+}
