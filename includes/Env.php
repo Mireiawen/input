@@ -47,9 +47,10 @@ class Env extends AbstractInput
 	 */
 	public function Get(string $key, $default = NULL)
 	{
-		if (isset($_ENV[$key]))
+		$value = getenv($key);
+		if ($value !== FALSE)
 		{
-			return $_ENV[$key];
+			return $value;
 		}
 		
 		if (!\is_null($default))
@@ -70,6 +71,6 @@ class Env extends AbstractInput
 	 */
 	public function Set(string $key, $value) : void
 	{
-		$_ENV[$key] = $value;
+		putenv(sprintf("%s=%s", $key, $value));
 	}
 }
