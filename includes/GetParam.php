@@ -57,7 +57,7 @@ class GetParam extends AbstractInput
 			return $default;
 		}
 		
-		throw new MissingValue(\sprintf(\_('The key %s was not found in the GET data'), $key));
+		throw new MissingValue($key);
 	}
 	
 	/**

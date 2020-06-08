@@ -57,7 +57,7 @@ class Env extends AbstractInput
 			return $default;
 		}
 		
-		throw new MissingValue(\sprintf(\_('The key %s was not found in the ENV data'), $key));
+		throw new MissingValue($key);
 	}
 	
 	/**

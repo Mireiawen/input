@@ -57,7 +57,7 @@ class Post extends AbstractInput
 			return $default;
 		}
 		
-		throw new MissingValue(\sprintf(\_('The key %s was not found in the POST data'), $key));
+		throw new MissingValue($key);
 	}
 	
 	/**
