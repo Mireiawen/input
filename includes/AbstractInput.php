@@ -8,8 +8,9 @@ namespace Mireiawen\Input;
  *
  * @package Mireiawen\Input
  * @copyright 2020-2022 Mira "Mireiawen" Manninen
+ * @license MIT
  */
-abstract class AbstractInput
+abstract class AbstractInput implements InputInterface
 {
 	/**
 	 * Check if the key exists
