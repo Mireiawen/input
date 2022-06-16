@@ -186,10 +186,40 @@ abstract class AbstractInput implements InputInterface
 		$value = $this->Get($key, $default);
 		if (!\is_array($value))
 		{
-			throw new \TypeError(\sprintf(\_('Expected value of type %s, got %s'), 'bool', \gettype($value)));
+			throw new \TypeError(\sprintf(\_('Expected value of type %s, got %s'), 'array', \gettype($value)));
 		}
 		
 		return $value;
+	}
+	
+	/**
+	 * Get the input variable and return its value, or default if it
+	 * is not set, and validating the type
+	 *
+	 * @param string $key
+	 *    The key to retrieve
+	 *
+	 * @param \DateTimeInterface|null $default
+	 *    The default value for the key, NULL to throw error if key is not set
+	 *
+	 * @return \DateTimeInterface
+	 *    The value of the key
+	 *
+	 * @throws MissingValue
+	 *    If the key is not set and no default value is specified
+	 *
+	 * @throws \TypeError
+	 *    If the key value is of wrong type
+	 */
+	public function GetDateTime(string $key, ?\DateTimeInterface $default = NULL) : \DateTimeInterface
+	{
+		$value = $this->Get($key, $default);
+		if ($value instanceof \DateTimeInterface)
+		{
+			return $value;
+		}
+		
+		throw new \TypeError(\sprintf(\_('Expected value of type %s, got %s'), 'DateTimeInterface', \gettype($value)));
 	}
 	
 	/**
@@ -304,6 +334,50 @@ abstract class AbstractInput implements InputInterface
 	}
 	
 	/**
+	 * Get the input variable and return its value, or default if it
+	 * is not set, and  casting the return value to correct type
+	 *
+	 * @param string $key
+	 *    The key to retrieve
+	 *
+	 * @param \DateTimeInterface|null $default
+	 *    The default value for the key, NULL to throw error if key is not set
+	 *
+	 * @return \DateTimeInterface
+	 *    The value of the key
+	 *
+	 * @throws MissingValue
+	 *    If the key is not set and no default value is specified
+	 *
+	 * @throws \TypeError
+	 *    If the key value is not possible to cast to DateTime
+	 */
+	public function GetAsDateTime(string $key, ?\DateTimeInterface $default = NULL) : \DateTimeInterface
+	{
+		$value = $this->Get($key, $default);
+		if ($value instanceof \DateTimeInterface)
+		{
+			return $value;
+		}
+		
+		if (!\is_string($value))
+		{
+			throw new \TypeError(\sprintf(\_('Expected value of type %s or %s, got %s'), 'DateTimeInterface', 'string', \gettype($value)));
+		}
+		
+		try
+		{
+			$datetime = new \DateTime($value);
+		}
+		catch (\Exception $exception)
+		{
+			throw new \TypeError(\sprintf(\_('Unable to create %s from %s: %s'), 'DateTime', $value, $exception->getMessage()), 0, $exception);
+		}
+		
+		return $datetime;
+	}
+	
+	/**
 	 * Set the input variable
 	 *
 	 * @param string $key
@@ -380,6 +454,20 @@ abstract class AbstractInput implements InputInterface
 	 *    The value to write
 	 */
 	public function SetArray(string $key, array $value) : void
+	{
+		$this->Set($key, $value);
+	}
+	
+	/**
+	 * Set the input variable
+	 *
+	 * @param string $key
+	 *    The name of the key to write
+	 *
+	 * @param \DateTimeInterface $value
+	 *    The value to write
+	 */
+	public function SetDateTime(string $key, \DateTimeInterface $value) : void
 	{
 		$this->Set($key, $value);
 	}

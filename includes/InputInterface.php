@@ -149,6 +149,27 @@ interface InputInterface
 	
 	/**
 	 * Get the input variable and return its value, or default if it
+	 * is not set, and validating the type
+	 *
+	 * @param string $key
+	 *    The key to retrieve
+	 *
+	 * @param \DateTimeInterface|null $default
+	 *    The default value for the key, NULL to throw error if key is not set
+	 *
+	 * @return \DateTimeInterface
+	 *    The value of the key
+	 *
+	 * @throws MissingValue
+	 *    If the key is not set and no default value is specified
+	 *
+	 * @throws \TypeError
+	 *    If the key value is of wrong type
+	 */
+	public function GetDateTime(string $key, ?\DateTimeInterface $default = NULL) : \DateTimeInterface;
+	
+	/**
+	 * Get the input variable and return its value, or default if it
 	 * is not set, and casting the return value to correct type
 	 *
 	 * @param string $key
@@ -238,6 +259,27 @@ interface InputInterface
 	public function GetAsArray(string $key, ?array $default = NULL) : array;
 	
 	/**
+	 * Get the input variable and return its value, or default if it
+	 * is not set, and  casting the return value to correct type
+	 *
+	 * @param string $key
+	 *    The key to retrieve
+	 *
+	 * @param \DateTimeInterface|null $default
+	 *    The default value for the key, NULL to throw error if key is not set
+	 *
+	 * @return \DateTimeInterface
+	 *    The value of the key
+	 *
+	 * @throws MissingValue
+	 *    If the key is not set and no default value is specified
+	 *
+	 * @throws \TypeError
+	 *    If the key value is not possible to cast to DateTime
+	 */
+	public function GetAsDateTime(string $key, ?\DateTimeInterface $default = NULL) : \DateTimeInterface;
+	
+	/**
 	 * Set the input variable
 	 *
 	 * @param string $key
@@ -302,4 +344,15 @@ interface InputInterface
 	 *    The value to write
 	 */
 	public function SetArray(string $key, array $value) : void;
+	
+	/**
+	 * Set the input variable
+	 *
+	 * @param string $key
+	 *    The name of the key to write
+	 *
+	 * @param \DateTimeInterface $value
+	 *    The value to write
+	 */
+	public function SetDateTime(string $key, \DateTimeInterface $value) : void;
 }
