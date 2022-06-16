@@ -7,7 +7,6 @@ namespace Mireiawen\Input;
  * Exception for missing value usage
  *
  * @package Mireiawen\Input
- * @copyright 2020 Mira "Mireiawen" Manninen
  */
 class MissingValue extends \RuntimeException
 {

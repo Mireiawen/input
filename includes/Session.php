@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) 2020 Mira "Mireiawen" Manninen
- */
-
 declare(strict_types = 1);
 
 namespace Mireiawen\Input;
@@ -11,7 +7,6 @@ namespace Mireiawen\Input;
  * Basic session input handler
  *
  * @package Mireiawen\Input
- * @copyright 2020 Mira "Mireiawen" Manninen
  */
 class Session extends AbstractInput
 {

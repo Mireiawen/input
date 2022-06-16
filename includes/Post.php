@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) 2020 Mira "Mireiawen" Manninen
- */
-
 declare(strict_types = 1);
 
 namespace Mireiawen\Input;
@@ -11,7 +7,6 @@ namespace Mireiawen\Input;
  * HTTP POST input handler class
  *
  * @package Mireiawen\Input
- * @copyright 2020 Mira "Mireiawen" Manninen
  */
 class Post extends AbstractInput
 {
@@ -65,6 +60,7 @@ class Post extends AbstractInput
 	 *
 	 * @param string $key
 	 *    The name of the key to write
+	 *
 	 * @param mixed $value
 	 *    The value to write
 	 */

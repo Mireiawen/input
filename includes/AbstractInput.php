@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) 2020 Mira "Mireiawen" Manninen
- */
-
 declare(strict_types = 1);
 
 namespace Mireiawen\Input;
@@ -11,7 +7,7 @@ namespace Mireiawen\Input;
  * The abstract base for input classes
  *
  * @package Mireiawen\Input
- * @copyright 2020 Mira "Mireiawen" Manninen
+ * @copyright 2020-2022 Mira "Mireiawen" Manninen
  */
 abstract class AbstractInput
 {
@@ -311,6 +307,7 @@ abstract class AbstractInput
 	 *
 	 * @param string $key
 	 *    The name of the key to write
+	 *
 	 * @param mixed $value
 	 *    The value to write
 	 */
@@ -321,6 +318,7 @@ abstract class AbstractInput
 	 *
 	 * @param string $key
 	 *    The name of the key to write
+	 *
 	 * @param string $value
 	 *    The value to write
 	 */
@@ -334,6 +332,7 @@ abstract class AbstractInput
 	 *
 	 * @param string $key
 	 *    The name of the key to write
+	 *
 	 * @param int $value
 	 *    The value to write
 	 */
@@ -347,6 +346,7 @@ abstract class AbstractInput
 	 *
 	 * @param string $key
 	 *    The name of the key to write
+	 *
 	 * @param float $value
 	 *    The value to write
 	 */
@@ -360,6 +360,7 @@ abstract class AbstractInput
 	 *
 	 * @param string $key
 	 *    The name of the key to write
+	 *
 	 * @param bool $value
 	 *    The value to write
 	 */
@@ -373,6 +374,7 @@ abstract class AbstractInput
 	 *
 	 * @param string $key
 	 *    The name of the key to write
+	 *
 	 * @param array $value
 	 *    The value to write
 	 */
